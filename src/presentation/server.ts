@@ -13,15 +13,13 @@ export class Server {
      private readonly port: number;
      private readonly publicPath: string;
 
-     //Es como inicializar las propiedades de los objetos
-    constructor(options:Options){
+    constructor(options: Options){
         console.log(options);
         const {port, public_path = 'public'} = options;
         this.port = port;
         this.publicPath = public_path;
     }
 
-    //Metodo start que configura y pone en marcha el servidor de express
     async start() {
 
         this.app.use(express.static(this.publicPath));
